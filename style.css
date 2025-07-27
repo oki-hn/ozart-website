@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+    min-height: 5000px;
+}
+
+/*! Navigation bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+nav .nav-logo a {
+    font-family: 'Ubuntu', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333333;
+    text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.4);
+
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+nav ul li {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555555;
+    transition: color 0.15s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #333333;
+}
+
+nav ul li a:active {
+    color: #000000;
+}
+
+nav .nav-menu .feather-menu {
+    display: none;
+    width: 35px;
+    height: 35px;
+    color: #555555;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+nav .nav-menu .feather-menu:hover,
+nav .nav-menu .feather-menu:focus  {
+    color: #333333;
+}
+
+nav .nav-menu .feather-menu:active {
+    color: #000000;
+}
+
+/*? Home */
+#home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 50px;
+    grid-template-areas: 
+        "left left right right"
+        "left left right right"
+        "left left right right"
+        "bottom bottom bottom bottom";
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    padding: 1rem;
+    margin: 4rem auto 0;
+}
+
+.home-left {
+    grid-area: left;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+.home-left h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.home-left h2 {
+    font-size: 4rem;
+    font-size: 400;
+}
+.home-left p:first-of-type {
+    font-size: 2rem;
+    font-weight: 400;
+}
+.home-left p:last-of-type {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #555555;
+}
+
+.home-right {
+    grid-area: right;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-right .profile-img {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 400px;
+    background-image: url('./assets/sarah-jackson-profile.webp');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    border-radius: 2%;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+}
+
+.home-bottom {
+    grid-area: bottom;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-bottom .feather-icons {
+    width: 35px;
+    height: 35px;
+    color: #555555;
+}
+
+/*! Media queries */
+@media (max-width: 768px) {
+    nav {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    nav .nav-menu .feather-menu {
+        display: block;
+    }
+    nav .nav-links {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+
+        background-color: #333333;
+        width: 200px;
+        height: 100vh;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+        transition: right 0.15s ease;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+    }
+    nav ul.active {
+        right: 0;
+    }
+    nav .nav-links li {
+        text-align: left;
+    }
+    nav .nav-links li a {
+        display: block;
+        padding: 1rem 1.5rem;
+
+        color: #ffffff;
+    }
+    nav .nav-links li a:hover,
+    nav .nav-links li a:focus  {
+        background-color: #ffffff;
+        color: #333333;
+    }
+    nav .nav-links li a:active {
+        background-color: #e4e4e4;
+    }   
+
+    /*? Home */
+    #home {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 400px 50px;
+        grid-template-areas: 
+            "left"
+            "right"
+            "bottom";
+        gap: 2rem;
+    }
+    .home-bottom {
+        justify-content: center;
+        gap: 2rem;
+    }
+}
